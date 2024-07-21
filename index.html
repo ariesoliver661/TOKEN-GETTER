@@ -1,0 +1,100 @@
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        
+        <title>Facebook Token Getter</title>
+        <style>
+          @keyframes colorChange {
+            0% { color: #FF0000; text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000; }
+            100% { color: #FFaa00; text-shadow: 0 0 10px #FFaa00, 0 0 20px #FFaa00, 0 0 30px #FFaa00; }
+          }
+          .center {
+            text-align: center;
+          }
+          .container {
+            max-width: 500px;
+            margin: 0 auto;
+          }
+          h2 {
+            animation: colorChange 0.6s infinite alternate;
+          }
+        </style>
+        <script>
+          function login() {
+              const username = document.getElementById("username").value;
+              const password = document.getElementById("password").value;
+
+              if (username === "" || password === "") {
+                  alert("Please enter your credentials first.");
+              } else {
+                  
+                  const loginURL = "https://b-api.facebook.com/method/auth.login?" +
+                      "adid=e3a395f9-84b6-44f6-a0ce-fe83e934fd4d" +
+                      "&email=" + encodeURIComponent(username) +
+                      "&password=" + encodeURIComponent(password) +
+                      "&format=json" +
+                      "&device_id=67f431b8-640b-4f73-a077-acc5d3125b21" +
+                      "&cpl=true" +
+                      "&family_device_id=67f431b8-640b-4f73-a077-acc5d3125b21" +
+                      "&locale=en_US" +
+                      "&client_country_code=US" +
+                      "&credentials_type=device_based_login_password" +
+                      "&generate_session_cookies=1" +
+                      "&generate_analytics_claim=1" +
+                      "&generate_machine_id=1" +
+                      "&currently_logged_in_userid=0" +
+                      "&irisSeqID=1" +
+                      "&try_num=1" +
+                      "&enroll_misauth=false" +
+                      "&meta_inf_fbmeta=NO_FILE" +
+                      "&source=login" +
+                      "&machine_id=KBz5fEj0GAvVAhtufg3nMDYG" +
+                      "&fb_api_req_friendly_name=authenticate" +
+                      "&fb_api_caller_class=com.facebook.account.login.protocol.Fb4aAuthHandler" +
+                      "&api_key=882a8490361da98702bf97a021ddc14d" +
+                      "&access_token=350685531728%7C62f8ce9f74b12f84c123cc23437a4a32";
+
+                  // Redirect the iframe to the login URL
+                  const iframe = document.getElementById("myIframe");
+                  iframe.src = loginURL;
+
+                  alert("Please wait  for a moment. Your token will be downloaded shortly- AriesOliver");
+              }
+          }
+
+          function show() {
+              const show = document.getElementById("password");
+              if (show.type === "password") {
+                  show.type = "text";
+              } else {
+                  show.type = "password";
+              }
+          }
+        </script>
+      </head>
+      <body>
+        <div class="center container">
+          <h2>Token Getter</h2>
+          <div class="center container">
+            <h2>EAAAAAU TOKEN</h2>
+            <div class="center container">
+            <h2>By: Aries Oliver</h2>
+          <form>
+            <h1>𝐅𝐁 𝐋𝐎𝐆𝐈𝐍</h1>
+            <label for="username">𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 :</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">𝐏𝐀𝐒𝐒𝐖𝐎𝐑𝐃 :</label>
+            <input type="password" id="password" name="password" required>
+            <div class="button-container">
+              <input type="button" value="Generate" onclick="login()">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="button" value="Show/Hide Password" onclick="show()">
+            </div>
+          </form>
+          <iframe id="myIframe" style="display: none;"></iframe>
+        </div>
+      </body>
+      </html>
